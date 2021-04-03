@@ -5,12 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>inscprof</title>
+    <title></title>
 </head>
 <body>
-    <h2>Bienvenue sur la page d'inscription des professeurs de la plateforme </h2>
+    <h1>Incription Professeurs</h1>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="label_idinscprof" runat="server" Text="ID Inscription Professeur"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="label_passinscprof" runat="server" Text="Mot de Passe prof"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Password"></asp:TextBox>
         </div>
     </form>
 </body>
