@@ -13,12 +13,14 @@
         <div>
             <asp:Label ID="label_idinscprof" runat="server" Text="ID Inscription Professeur"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="id_inscprof" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="label_passinscprof" runat="server" Text="Mot de Passe prof"></asp:Label>
             <br />
-            <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="pass_inscprof" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Password"></asp:TextBox>
+            <br />
+            <asp:Button ID="submit_inscprof" runat="server" OnClick="Button1_Click" Text="S'inscrire" />
         </div>
     </form>
 </body>

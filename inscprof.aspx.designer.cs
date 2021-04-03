@@ -33,13 +33,13 @@ namespace trombinoscope1
         protected global::System.Web.UI.WebControls.Label label_idinscprof;
 
         /// <summary>
-        /// Contrôle TextBox1.
+        /// Contrôle id_inscprof.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox id_inscprof;
 
         /// <summary>
         /// Contrôle label_passinscprof.
@@ -51,12 +51,21 @@ namespace trombinoscope1
         protected global::System.Web.UI.WebControls.Label label_passinscprof;
 
         /// <summary>
-        /// Contrôle TextBox2.
+        /// Contrôle pass_inscprof.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox pass_inscprof;
+
+        /// <summary>
+        /// Contrôle submit_inscprof.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submit_inscprof;
     }
 }
