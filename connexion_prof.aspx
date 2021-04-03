@@ -10,16 +10,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="label_idprof" runat="server" Text="Identifiant Prof"></asp:Label>
-            <br />
-            <asp:TextBox ID="txt_id_prof" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="label_passprof" runat="server" Text="Mot de passe Prof"></asp:Label>
-            <br />
-            <br />
-            <asp:TextBox ID="text_passprof" runat="server" OnTextChanged="TextBox1_TextChanged" TextMode="Password"></asp:TextBox>
-            <br />
-            <asp:Button ID="btn_submitprof" runat="server" OnClick="btn_submitprof_Click" Text="Button" />
         </div>
     </form>
 </body>

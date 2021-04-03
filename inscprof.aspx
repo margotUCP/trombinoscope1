@@ -11,10 +11,26 @@
     <h1>Incription Professeurs</h1>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="label_idinscprof" runat="server" Text="ID Inscription Professeur"></asp:Label>
+            <asp:Label ID="label_idinscprof" runat="server" Text="Nom du professeur"></asp:Label>
             <br />
-            <asp:TextBox ID="id_inscprof" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="nom_inscprof" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
             <br />
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Prénom "></asp:Label>
+            <br />
+            <asp:TextBox ID="prenom_inscprof" runat="server" OnTextChanged="TextBox1_TextChanged1"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="Email"></asp:Label>
+            <br />
+            <asp:TextBox ID="mail_inscprof" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label3" runat="server" Text="Numéro de téléphone"></asp:Label>
+            <br />
+            <asp:TextBox ID="phone_inscprof" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Nom d'utilisateur"></asp:Label>
+            <br />
+            <asp:TextBox ID="username_inscprof" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="label_passinscprof" runat="server" Text="Mot de Passe prof"></asp:Label>
             <br />

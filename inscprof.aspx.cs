@@ -21,8 +21,16 @@ namespace trombinoscope1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string sid_inscprof = id_inscprof.Text;
-            string spass_inscprof = pass_inscprof.Text;
+            //recup donnees du form
+            string type_user_inprof = "prof"; 
+            string nom_inprof = nom_inscprof.Text;
+            string prenom_inprof = prenom_inscprof.Text;
+            string mail_inprof = mail_inscprof.Text;
+            string phone_inprof = phone_inscprof.Text;
+            string username_inprof = username_inscprof.Text; 
+            string pass_inprof = pass_inscprof.Text; 
+
+            string spass_incprof = pass_inscprof.Text;
 
 
             //co bdd
@@ -32,16 +40,29 @@ namespace trombinoscope1
             string password = "usertrombi1";
             string connString = @"Data Source=" + datasource + ";Database=" + database + ";Trusted_Connection=True;" + "User ID=" + username + ";Password=" + password;
             SqlConnection conn = new SqlConnection(connString);
-            conn.Open();
-            Response.Write("Connexion Reussie");
-
 
             //ajout user a bdd
+            SqlCommand command1;
+            SqlDataAdapter adapter1 = new SqlDataAdapter();
+            String sql1;
+            sql1 = "INSERT INTO users (type_user, nom_user, prenom_user, Email, PasswordHash, PhoneNumber, Username) VALUES ('type_user_inprof', 'nom_inprof', 'prenom_inprof', mail_inprof', 'pass_inprof', 'phone_inprof', 'username_inprof')";
+            command1 = new SqlCommand(sql1, conn);
+            adapter1.InsertCommand = new SqlCommand(sql1, conn);
+            adapter1.InsertCommand.ExecuteNonQuery();
+
+            command1.Dispose(); 
+
+            Response.Redirect("connexion_prof.aspx"); 
 
             conn.Close();
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBox1_TextChanged1(object sender, EventArgs e)
         {
 
         }
