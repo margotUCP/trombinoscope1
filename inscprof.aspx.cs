@@ -45,7 +45,8 @@ namespace trombinoscope1
             SqlCommand command1;
             SqlDataAdapter adapter1 = new SqlDataAdapter();
             String sql1;
-            sql1 = "INSERT INTO users (type_user, nom_user, prenom_user, Email, PasswordHash, PhoneNumber, Username) VALUES ('type_user_inprof', 'nom_inprof', 'prenom_inprof', mail_inprof', 'pass_inprof', 'phone_inprof', 'username_inprof')";
+            sql1 = "INSERT INTO users (type_user, nom_user, prenom_user, Email, PasswordHash, PhoneNumber, Username) VALUES ('" + type_user_inprof + "', '" + nom_inprof + "', '" + prenom_inprof + "', '" + mail_inprof + "', '" + pass_inprof + "', '" + phone_inprof + "', '" + username_inprof + "')";
+            //sql1 = "INSERT INTO users (type_user, nom_user, prenom_user, Email, PasswordHash, PhoneNumber, Username) VALUES ('type_user_inprof', 'nom_inprof', 'prenom_inprof', 'mail_inprof', 'pass_inprof', 'phone_inprof', 'username_inprof')";
             command1 = new SqlCommand(sql1, conn);
             adapter1.InsertCommand = new SqlCommand(sql1, conn);
             adapter1.InsertCommand.ExecuteNonQuery();
