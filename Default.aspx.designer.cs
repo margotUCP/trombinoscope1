@@ -15,30 +15,21 @@ namespace trombinoscope1
     {
 
         /// <summary>
-        /// Contrôle lblidprof.
+        /// Contrôle btnprof.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblidprof;
+        protected global::System.Web.UI.WebControls.Button btnprof;
 
         /// <summary>
-        /// Contrôle lblpassprof.
+        /// Contrôle btnetu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblpassprof;
-
-        /// <summary>
-        /// Contrôle submitcoprof.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitcoprof;
+        protected global::System.Web.UI.WebControls.Button btnetu;
     }
 }
