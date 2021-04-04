@@ -114,6 +114,24 @@ namespace trombinoscope1
         protected global::System.Web.UI.WebControls.TextBox username_inscprof;
 
         /// <summary>
+        /// Contrôle Label5.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// Contrôle bureau_inscprof.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox bureau_inscprof;
+
+        /// <summary>
         /// Contrôle label_passinscprof.
         /// </summary>
         /// <remarks>

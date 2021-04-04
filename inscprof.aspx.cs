@@ -29,6 +29,7 @@ namespace trombinoscope1
             string phone_inprof = phone_inscprof.Text;
             string username_inprof = username_inscprof.Text; 
             string pass_inprof = pass_inscprof.Text;
+            string bureau_inprof = bureau_inscprof.Text; 
             DateTime date = DateTime.Now; 
 
             string spass_incprof = pass_inscprof.Text;
@@ -44,16 +45,42 @@ namespace trombinoscope1
             conn.Open();
 
             //ajout user a bdd
-            SqlCommand command1;
+            SqlCommand command1, command3;
             SqlDataAdapter adapter1 = new SqlDataAdapter();
             String sql1;
-            sql1 = "Insert into users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, Username) values ('" + type_user_inprof + "', '" + nom_inprof + "', '" + prenom_inprof + "', '" + mail_inprof + "', 'False', '" + pass_inprof + "', '', '" + phone_inprof + "', '0', '0', '"+date+"','0',  '1', '" + username_inprof + "')";
-            //sql1 = "INSERT INTO users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, PhoneNumber, Username) VALUES ('type_user_inprof', 'nom_inprof', 'prenom_inprof', 'mail_inprof', 'pass_inprof', 'phone_inprof', 'username_inprof')";
+
+            sql1 = "Insert into users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, Username) values ('" + type_user_inprof + "', '" + nom_inprof + "', '" + prenom_inprof + "', '" + mail_inprof + "', 'False', '" + pass_inprof + "', '', '" + phone_inprof + "', '0', '0', '" + date + "','0',  '1', '" + username_inprof + "')";
+
             command1 = new SqlCommand(sql1, conn);
             adapter1.InsertCommand = new SqlCommand(sql1, conn);
             adapter1.InsertCommand.ExecuteNonQuery();
-
             command1.Dispose();
+
+            SqlCommand command2; 
+            String sql2; 
+            SqlDataReader datar2;
+            String Output2 = "";
+            sql2 = "Select id_user from users where username = '" + username_inprof + "'";
+            command2 = new SqlCommand(sql2, conn);
+            datar2 = command2.ExecuteReader();
+            //recup id_user
+            while (datar2.Read())
+            {
+                Output2 = Output2 + datar2.GetValue(0);
+            }
+
+            datar2.Close();
+            command2.Dispose();
+
+            //insertion de id_prof dans la table des profs
+            SqlDataAdapter adapter3 = new SqlDataAdapter();
+            String sql3;
+            sql3 = "Insert into professeurs (id_prof, b_prof) values ('" + Output2 + "','" + bureau_inprof + "')";
+            command3 = new SqlCommand(sql3, conn);
+            adapter3.InsertCommand = new SqlCommand(sql3, conn);
+            adapter3.InsertCommand.ExecuteNonQuery();
+            command1.Dispose();
+
             conn.Close();
             Response.Redirect("connexion_prof.aspx");
         }

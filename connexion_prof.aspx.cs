@@ -33,32 +33,54 @@ namespace trombinoscope1
 
             //ajout user a bdd
             SqlCommand command10;
+            SqlCommand command11;
             SqlDataReader datar10;
-            String sql10, Output10 = ""; 
+            SqlDataReader datar11;
+            String sql10, sql11, Output10 = "", Output11 = ""; 
             sql10 = "Select PasswordHash from users where Username='" + username_coprof + "'";
+            sql11 = "Select id_user from users where Username='" + username_coprof + "'";
+
             command10 = new SqlCommand(sql10, conn);
+            command11 = new SqlCommand(sql11, conn);
+
             datar10 = command10.ExecuteReader();
+            
+
+            //recup pass_user
             while (datar10.Read())
             {
                 Output10 = Output10 + datar10.GetValue(0);
             }
-            if (Output10 == pass_coprof)
-            {
-                Response.Redirect("members/esp_prof.aspx");
-            }
-            else if(Output10 != pass_coprof)
-            {
-                Response.Write("Identifiant et / ou Mot de Passe Incorrect(s)"); 
-            }
+            
             datar10.Close();
             command10.Dispose();
-            conn.Close(); 
+
+            datar11 = command11.ExecuteReader();
+            //recup id_user
+            while (datar11.Read())
+            {
+                Output11 = Output11 + datar11.GetValue(0);
+            }
+
+
+            
+            datar11.Close();
+            command11.Dispose();
+            conn.Close();
+
+            //comparaison mdp
+            if (Output10 == pass_coprof)
+            {
+                Response.Redirect("members/esp_prof.aspx?id_user=" + Output11);
+            }
+            else if (Output10 != pass_coprof)
+            {
+                Response.Write("Identifiant et / ou Mot de Passe Incorrect(s)");
+            }
         }
 
         protected void pass_connprof_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
-
 }

@@ -15,7 +15,6 @@
             <br />
             <asp:TextBox ID="nom_inscprof" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
             <br />
-            <br />
             <asp:Label ID="Label1" runat="server" Text="Prénom "></asp:Label>
             <br />
             <asp:TextBox ID="prenom_inscprof" runat="server" OnTextChanged="TextBox1_TextChanged1"></asp:TextBox>
@@ -31,6 +30,10 @@
             <asp:Label ID="Label4" runat="server" Text="Nom d'utilisateur"></asp:Label>
             <br />
             <asp:TextBox ID="username_inscprof" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label5" runat="server" Text="Bureau"></asp:Label>
+            <br />
+            <asp:TextBox ID="bureau_inscprof" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="label_passinscprof" runat="server" Text="Mot de Passe prof"></asp:Label>
             <br />
