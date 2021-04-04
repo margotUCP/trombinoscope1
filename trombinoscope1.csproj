@@ -135,6 +135,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="inscprof.aspx" />
+    <Content Include="members\esp_etu.aspx" />
+    <Content Include="members\esp_prof.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -209,6 +211,20 @@
     </Compile>
     <Compile Include="inscprof.aspx.designer.cs">
       <DependentUpon>inscprof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="members\esp_etu.aspx.cs">
+      <DependentUpon>esp_etu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="members\esp_etu.aspx.designer.cs">
+      <DependentUpon>esp_etu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="members\esp_prof.aspx.cs">
+      <DependentUpon>esp_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="members\esp_prof.aspx.designer.cs">
+      <DependentUpon>esp_prof.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
