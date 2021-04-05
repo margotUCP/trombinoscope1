@@ -49,7 +49,7 @@ namespace trombinoscope1
             SqlDataAdapter adapter1 = new SqlDataAdapter();
             String sql1;
 
-            sql1 = "Insert into users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, Username) values ('" + type_user_inprof + "', '" + nom_inprof + "', '" + prenom_inprof + "', '" + mail_inprof + "', 'False', '" + pass_inprof + "', '', '" + phone_inprof + "', '0', '0', '" + date + "','0',  '1', '" + username_inprof + "')";
+            sql1 = "Insert into users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, Username) values ('" + type_user_inprof + "', '" + nom_inprof + "', '" + prenom_inprof + "', '" + mail_inprof + "', 'False', '" + pass_inprof + "', '', '" + phone_inprof + "', '0', '0', '" + date + "','0',  '0', '" + username_inprof + "')";
 
             command1 = new SqlCommand(sql1, conn);
             adapter1.InsertCommand = new SqlCommand(sql1, conn);

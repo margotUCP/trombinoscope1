@@ -100,7 +100,7 @@ namespace trombinoscope1
                 sql13 = "Update users set AccessFailedCount = '" + nwaccessfail + "' where Username = '" + username_coprof + "'";
                 command13 = new SqlCommand(sql13,conn);
                 adapter13.InsertCommand = new SqlCommand(sql13, conn);
-                adapter13.InsertCommand.ExecuteNonQuery;
+                adapter13.InsertCommand.ExecuteNonQuery();
                 command13.Dispose();
 
 
