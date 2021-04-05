@@ -30,15 +30,18 @@ namespace trombinoscope1.members
                 conn.Open();
 
                 //requete pour les infos du prof a partir de l'id 
-                SqlCommand command20 = conn.CreateCommand();
-                command20.CommandText = "Select * from users where id_user = '" + id_user + "'";
+                SqlCommand command20;
+                SqlDataReader datar20;
+                String sql20, Output20 = ""; 
+                sql20 = "Select * from users where id_user = '" + id_user + "'";
 
-                //Lecture des résultats 
-                SqlDataReader datar20 = command20.ExecuteReader(); 
-            
+                command20 = new SqlCommand(sql20, conn);
+
+                datar20 = command20.ExecuteReader();
+
                 while (datar20.Read())
                 {
-                    comboBox.Items.Add(datar20["nom_user"]);
+                    Output20 = Output20 + datar20.GetValue(0) + "-" + datar20.GetValue(1) + "</br>";
                 }
                 conn.Close();
             }

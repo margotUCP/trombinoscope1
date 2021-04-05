@@ -66,16 +66,47 @@ namespace trombinoscope1
             
             datar11.Close();
             command11.Dispose();
-            conn.Close();
 
             //comparaison mdp
             if (Output10 == pass_coprof)
             {
                 Response.Redirect("members/esp_prof.aspx?id_user=" + Output11);
             }
+            //le cas ou le mot de passe ne correspond pas 
             else if (Output10 != pass_coprof)
             {
                 Response.Write("Identifiant et / ou Mot de Passe Incorrect(s)");
+
+                //on recup accessfail de l'user 
+                SqlCommand command12;
+                SqlDataReader datar12;
+                String sql12, Output12 = "";
+                sql12 = "Select AccessFailedCount from users where Username = '" + username_coprof + "'";
+                command12 = new SqlCommand(sql12, conn);
+                datar12 = command12.ExecuteReader(); 
+                while (datar12.Read())
+                {
+                    Output12 = Output12 + datar12.GetValue(0); 
+                }
+                datar12.Close();
+                command12.Dispose();
+
+                int nwaccessfail = int.Parse(Output12)+1; 
+
+                //on ajoute un echec de connection 
+                SqlCommand command13;
+                SqlDataAdapter adapter13 = new SqlDataAdapter();
+                String sql13 ="";
+                sql13 = "Update users set AccessFailedCount = '" + nwaccessfail + "' where Username = '" + username_coprof + "'";
+                command13 = new SqlCommand(sql13,conn);
+                adapter13.InsertCommand = new SqlCommand(sql13, conn);
+                adapter13.InsertCommand.ExecuteNonQuery;
+                command13.Dispose();
+
+
+                conn.Close();
+
+
             }
         }
 
