@@ -63,7 +63,7 @@ namespace trombinoscope1
             SqlCommand command31;
             SqlDataAdapter adapter31 = new SqlDataAdapter();
             String sql31 = "";
-            sql31 = "Insert into users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, Username) values " + "('" + type_inetu + "', '" + nom_inetu + "', '" + prenom_inetu + "', '" + mail_inetu + "', 'False', '" + pass_inetu + "', '', '" + phone_inetu + "', '0', '0', '" + date + "','0',  '0', '" + username_inetu + "')";
+            sql31 = "Insert into users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, Username) values ('" + type_inetu + "', '" + nom_inetu + "', '" + prenom_inetu + "', '" + mail_inetu + "', 'False', '" + pass_inetu + "', '', '" + phone_inetu + "', '0', '0', '" + date + "','0',  '0', '" + username_inetu + "')";
             command31 = new SqlCommand(sql31, conn);
             adapter31.InsertCommand = new SqlCommand(sql31, conn);
             adapter31.InsertCommand.ExecuteNonQuery();
@@ -91,7 +91,8 @@ namespace trombinoscope1
             adapter33.InsertCommand.ExecuteNonQuery();
             command33.Dispose(); 
 
-            conn.Close(); 
+            conn.Close();
+            Response.Redirect("connexion_etu.aspx");
         }
     }
 }

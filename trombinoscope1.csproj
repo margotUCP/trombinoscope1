@@ -133,6 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="add_filiere.aspx" />
+    <Content Include="connexion_etu.aspx" />
     <Content Include="connexion_prof.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -192,6 +194,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add_filiere.aspx.cs">
+      <DependentUpon>add_filiere.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="add_filiere.aspx.designer.cs">
+      <DependentUpon>add_filiere.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -201,6 +210,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="connexion_etu.aspx.cs">
+      <DependentUpon>connexion_etu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="connexion_etu.aspx.designer.cs">
+      <DependentUpon>connexion_etu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="connexion_prof.aspx.cs">
       <DependentUpon>connexion_prof.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
