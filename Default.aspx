@@ -16,6 +16,12 @@
             <p>
                 &nbsp;<asp:Button ID="btnprof" runat="server" OnClick="btnprof_Click" Text="Professeur" />
             </p>
+            <p>
+                Pas encore inscrit ?
+            </p>
+            <p>
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="S'inscrire en tant que Professeur" />
+            </p>
         </div>
         <div class="col-md-4">
             <h2>Etudiant</h2>
@@ -24,6 +30,12 @@
             </p>
             <p>
                 &nbsp;<asp:Button ID="btnetu" runat="server" OnClick="btnetu_Click" Text="Etudiant" />
+            </p>
+            <p>
+                Pas encore inscrit ?
+            </p>
+            <p>
+                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="S'inscrire en tant que Professeur" />
             </p>
         </div>
         <div class="col-md-4">

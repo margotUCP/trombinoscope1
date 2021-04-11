@@ -25,14 +25,23 @@ namespace trombinoscope1
 
         protected void btnprof_Click(object sender, EventArgs e)
         {
-            Response.Redirect("coprof.aspx");
+            Response.Redirect("connexion_prof.aspx");
         }
 
         protected void btnetu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("coetu.aspx");
+            Response.Redirect("connexion_etu.aspx");
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("inscprof.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("inscetu.aspx");
+        }
     }
 
 

@@ -18,7 +18,6 @@ namespace trombinoscope1.members
             if (!IsPostBack)
             {
                 string id_user = (Request.QueryString["id_user"] != null) ? Request.QueryString["id_user"] : "";
-                Response.Write(id_user);
             
                 //co bdd
                 string datasource = "CY-RT85O0N2T5PK\\SQLEXPRESS";
@@ -30,25 +29,50 @@ namespace trombinoscope1.members
                 conn.Open();
 
                 //requete pour les infos du prof a partir de l'id 
-                SqlCommand command20;
-                SqlDataReader datar20;
-                String sql20, Output20 = ""; 
-                sql20 = "Select * from users where id_user = '" + id_user + "'";
-
+                SqlCommand command20, command21, command22;
+                SqlDataReader datar20, datar21, datar22;
+                String sql20, sql21, sql22,  nomprofe = "", prenomprofe="", mailprofe =""; 
+                sql20 = "Select nom_user from users where id_user = '" + id_user + "'";
+                sql21 = "Select prenom_user from users where id_user = '" + id_user + "'";
+                sql22 = "Select Email from users where id_user = '" + id_user + "'";
                 command20 = new SqlCommand(sql20, conn);
+                command21 = new SqlCommand(sql21, conn);
+                command22 = new SqlCommand(sql22, conn);
 
                 datar20 = command20.ExecuteReader();
-
                 while (datar20.Read())
                 {
-                    Output20 = Output20 + datar20.GetValue(0) + "-" + datar20.GetValue(1) + "</br>";
+                    nomprofe = nomprofe + datar20.GetValue(0);
                 }
+                datar20.Close();
+
+                datar21 = command20.ExecuteReader();
+                while (datar21.Read())
+                {
+                    prenomprofe = prenomprofe + datar21.GetValue(0);
+                }
+                datar21.Close();
+
+                datar22 = command20.ExecuteReader();
+                while (datar22.Read())
+                {
+                    mailprofe = mailprofe + datar22.GetValue(0);
+                }
+                datar22.Close(); 
+
                 conn.Close();
+
+                Response.Write("<strong>VOS INFORMATIONS </strong><br>"); 
+                Response.Write("<br><strong>Nom: </strong>" + nomprofe + "<br>");
+                Response.Write("<br><strong>Prénom : </strong>" + prenomprofe + "<br>" );
+                Response.Write("<br><strong> E-mail : </strong>" + mailprofe +  "<br>"); 
+
             }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Response.Write("<strong>Résultat : </strong><br> "); 
             string nomet = rechnometu.Text; 
             //connexion a la bdd
             string datasource = "CY-RT85O0N2T5PK\\SQLEXPRESS";
@@ -75,7 +99,7 @@ namespace trombinoscope1.members
             Response.Write(Outputre1);
             datarre1.Close();
             commandre1.Dispose();
-            Response.Write("Nom : " + Outputre1); 
+            Response.Write("<br><strong>Nom : </strong>" + Outputre1); 
 
             SqlCommand commandre2;
             String sqlre2;
@@ -93,7 +117,7 @@ namespace trombinoscope1.members
             Response.Write(Outputre2);
             datarre2.Close();
             commandre2.Dispose();
-            Response.Write("Prénom : " + Outputre2);
+            Response.Write("<br><strong>Prénom : </strong>" + Outputre2);
 
             SqlCommand commandre3;
             String sqlre3;
@@ -111,7 +135,7 @@ namespace trombinoscope1.members
             Response.Write(Outputre2);
             datarre3.Close();
             commandre3.Dispose();
-            Response.Write("Nom : " + Outputre3);
+            Response.Write("<br><strong>Nom : </strong>" + Outputre3);
 
             //
             SqlCommand commandre4;
@@ -130,7 +154,7 @@ namespace trombinoscope1.members
             Response.Write(Outputre4);
             datarre4.Close();
             commandre4.Dispose();
-            Response.Write("Téléphone : " + Outputre4);
+            Response.Write("<br><strong>Téléphone : </strong>" + Outputre4);
 
             //
             SqlCommand commandre5;
@@ -146,7 +170,7 @@ namespace trombinoscope1.members
                 Outputre5 = Outputre5 + datarre5.GetValue(0);
 
             }
-            Response.Write(Outputre4);
+            //Response.Write(Outputre4);
             datarre5.Close();
             commandre5.Dispose();
             //int id_usereture = Outputre5;
@@ -192,7 +216,7 @@ namespace trombinoscope1.members
             {
                 Outputre8 = datarre8.GetInt32(0);
             }
-            Response.Write("Numéro étudiant : " + Outputre8);
+            Response.Write("<br><strong>Numéro étudiant : </strong>" + Outputre8);
             datarre8.Close();
             commandre8.Dispose();
 
