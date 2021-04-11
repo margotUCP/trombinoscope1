@@ -4,11 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <h1>Ajouter une filière</h1>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>coetu</title>
 </head>
 <body>
+    <h1>Ajouter une filière</h1>
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="Label1" runat="server" Text="Nom de la filière "></asp:Label>

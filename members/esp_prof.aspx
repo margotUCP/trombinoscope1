@@ -8,12 +8,20 @@
     <title></title>
 </head>
 <body>
-    <h1>Bienvenu sur votre espace professeur</h1>
     <div>
-        <h2>Vos informations personnelles</h2>
     </div>
     <form id="form1" runat="server">
         <div>
+            <h3>Rechercher un étudiant</h3>
+
+            <br />
+
+            <asp:Label runat="server" Text="nom de l'étudiant"></asp:Label>
+            <br />
+            <asp:TextBox ID="rechnometu" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Chercher" />
+
         </div>
     </form>
 </body>

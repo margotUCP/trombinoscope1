@@ -41,7 +41,7 @@ namespace trombinoscope1
             DateTime date = DateTime.Now;
 
             ///variables utiles à l'inscription dans la table etudiants
-            String no_inetu = no_inscetu.Text;
+            int no_inetu = int.Parse(no_inscetu.Text);
             String niv_inetu = niv_inscetu.Text;
             String ad_inetu = ad_inscetu.Text;
             String filiere_inetu = filiere_inscetu.Text;
@@ -50,47 +50,72 @@ namespace trombinoscope1
             SqlCommand command30;
             SqlDataReader datar30;
             String sql30, Output30 = "";
-            sql30 = "Select id_filiere from filiere where nom_filiere = '" + filiere_inetu + "'";
+            sql30 = "Select id_filiere from filieres where nom_filiere = '" + filiere_inetu + "'";
             command30 = new SqlCommand(sql30, conn);
             datar30 = command30.ExecuteReader(); 
             while (datar30.Read())
             {
                 Output30 = Output30 + datar30.GetValue(0); 
             }
+            command30.Dispose();
             int id_filiere = int.Parse(Output30);
+            datar30.Close();
+
+            /*filieres si
+            int id_filiere = -1;
+            if (filiere_inetu == "WS")
+            {
+                id_filiere = 5;
+            }
+            else if (filiere_inetu == "EG")
+            {
+                id_filiere = 124 ;
+            }
+            else if (filiere_inetu == "MIPI")
+            {
+                id_filiere = 3; 
+            }
+            else
+            {
+                id_filiere = 6; 
+            }*/
 
             //inscription dans la table users
-            SqlCommand command31;
             SqlDataAdapter adapter31 = new SqlDataAdapter();
             String sql31 = "";
             sql31 = "Insert into users (type_user, nom_user, prenom_user, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, Username) values ('" + type_inetu + "', '" + nom_inetu + "', '" + prenom_inetu + "', '" + mail_inetu + "', 'False', '" + pass_inetu + "', '', '" + phone_inetu + "', '0', '0', '" + date + "','0',  '0', '" + username_inetu + "')";
-            command31 = new SqlCommand(sql31, conn);
             adapter31.InsertCommand = new SqlCommand(sql31, conn);
             adapter31.InsertCommand.ExecuteNonQuery();
+            adapter31.Dispose(); 
 
             //recup id_user de l'etu 
             SqlCommand command32;
             SqlDataReader datar32;
-            String sql32, Output32 = "";
-            sql32 = "Select id_user from users where Usrename='" + username_inetu + "'";
+            String sql32; 
+            int Output32 = -1;
+            sql32 = "Select id_user from users where Username='" + username_inetu + "'";
             command32 = new SqlCommand(sql32, conn);
             datar32 = command32.ExecuteReader(); 
             while (datar32.Read())
             {
-                Output32 = Output32 + datar32.GetValue(0); 
+                Output32 = datar32.GetInt32(0);
             }
-            int id_user = int.Parse(Output32);
+            int id_userinetu = Output32;
+            command32.Dispose();
+            datar32.Close();
+            //string id_user = Output32;
 
             //insertion de l'utilisateur dans la table des étudiants
-            SqlCommand command33;
-            SqlDataAdapter adapter33 = new SqlDataAdapter();
+            //SqlCommand command33;
+            SqlDataAdapter adapter33 = new SqlDataAdapter(); 
             String sql33 ="";
-            sql33 = "Insert into etudiants (id_etu, n_etu, niv_etu, ad_etu, id_filiere) values ('" + id_user + "','" + no_inetu + "','" + niv_inetu + "','" + ad_inetu + "','" + id_filiere + "'";
-            command33 = new SqlCommand(sql33, conn);
+            sql33 = "Insert into etudiants (id_etu, n_etu, niv_etu, ad_etu, id_filiere) values ('" + id_userinetu + "','" + no_inetu + "','" + niv_inetu + "','" + ad_inetu + "','" + id_filiere + "')";
             adapter33.InsertCommand = new SqlCommand(sql33, conn);
             adapter33.InsertCommand.ExecuteNonQuery();
-            command33.Dispose(); 
-
+            adapter33.Dispose();
+            //command33 = new SqlCommand(sql33, conn);  
+            //int r33 = command33.ExecuteNonQuery();
+            //command33.Dispose();
             conn.Close();
             Response.Redirect("connexion_etu.aspx");
         }

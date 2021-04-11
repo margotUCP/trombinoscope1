@@ -70,7 +70,7 @@
         <br />
         <asp:Label ID="Label10" runat="server" Text="Mot de passe"></asp:Label>
         <br />
-        <asp:TextBox ID="pass_inscetu" runat="server"></asp:TextBox>
+        <asp:TextBox ID="pass_inscetu" runat="server" TextMode="Password"></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="submit_inscetu" runat="server" OnClick="submit_inscetu_Click" Text="Button" />

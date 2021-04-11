@@ -10,6 +10,19 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h1>Connexion Etudiant</h1>
+
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="identifiant"></asp:Label>
+            <br />
+            <asp:TextBox ID="idcoetu" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label runat="server" Text="Mot de passe"></asp:Label>
+            <br />
+            <asp:TextBox ID="mdpcoetu" runat="server" TextMode="Password"></asp:TextBox>
+            <br />
+            <asp:Button ID="submitcoetu" runat="server" OnClick="submitcoetu_Click" Text="Connexion" />
+
         </div>
     </form>
 </body>

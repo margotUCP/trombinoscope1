@@ -31,7 +31,7 @@ namespace trombinoscope1
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
 
-            //ajout user a bdd
+            
             SqlCommand command10;
             SqlCommand command11;
             SqlDataReader datar10;
